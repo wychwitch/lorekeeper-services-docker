@@ -6,6 +6,8 @@ This was mainly created so I didn't have to deal with setting up both a local an
 
 **Warning: I am not an expert on web development nor Docker best practices**. Use at your own risk. If any suggested or changes can be made, please feel free to open a PR or an issue! 
 
+Also, if you are brand new to web development, server managment, or laravel development at all, I actually wouldn't recommend  you follow this guide and instead try and get Lorekeeper up and running manually first! Only then would I recommend using this docker setup, as involving docker is another layer of complexity that might make things confusing for you down the road. However, I made this in such a way it *should* be easy to move to another setup with relative ease if that does happen.
+
 ## How to use this repo
 First, clone the repo somewhere:
 
