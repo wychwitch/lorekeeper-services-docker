@@ -1,6 +1,6 @@
 # Lorekeeper Services Docker
 
-This is an unnoficial docker setup for running [Lorekeeper](https://github.com/lk-arpg/lorekeeper)'s services (Webserver, Database, & Database Manager) via docker.
+This is an unnoficial docker setup for running [Lorekeeper](https://github.com/lk-arpg/lorekeeper)'s services (Apache, Mariadb, & Adminer) via docker.
 
 This was mainly created so I didn't have to deal with setting up both a local and production environment and deal with their own individual quirks. This *should* make Lorekeeper services more reproducible and consistent across servers!
 
@@ -13,7 +13,7 @@ First, clone the repo somewhere:
 git clone https://github.com/wychwitch/lorekeeper-services-docker.git 
 ```
 
-Navigate to where you cloned it and copy & edit the `.env.example` file variables
+Navigate to where you cloned it and copy & edit the `.env.example` file variables as needed, taking care that the database info matches the info in your lorekeeper's .env file!
 
 ```bash
 cp .env.example .env
@@ -35,7 +35,9 @@ Your database's data will be in the `./data/database` folder!
 
 ## Adminer
 
-Included alongside the database and web server is a small program called Adminer, which is very similar to phpmyadmin. If you navigate to the site (default `localhost:8181`) You sign in using the `DB_USERNAME`, `DB_PASSWORD`, and `DB_DATABASE` variables from before! The host should automatically have `db` in its field but that's totally fine, It'll work!
+Included alongside the database and web server is a small program called [Adminer](https://www.adminer.org/), which is very similar to phpmyadmin. If you navigate to the site (default `localhost:8181`) You sign in using the `DB_USERNAME`, `DB_PASSWORD`, and `DB_DATABASE` variables from before! The host should automatically have `db` in its field but that's totally fine, It'll work!
+
+If you do not want Adminer because you already have phpmyadmin or another database management solution, simply delete the relevant lines from the docker-compose.yml!
 
 ## Running Compose & Laravel Scripts
 
