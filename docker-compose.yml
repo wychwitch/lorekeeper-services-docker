@@ -1,0 +1,41 @@
+name: lorekeeper-services
+
+services:
+
+  frontend:
+    environment:
+    - APACHE_RUN_USER=#1000
+    build:
+      context: ./frontend
+    ports:
+    - ${WEBSERVER_PORT}:80
+    volumes:
+    - ${LOREKEEPER_DIRECTORY}:/var/www/html/
+    networks:
+      - lorekeeper-services-network
+
+  db:
+    image: mariadb
+    restart: always
+    ports:
+    - ${DB_PORT}:3306
+    environment:
+      MYSQL_USER: ${DB_USERNAME}
+      MYSQL_PASSWORD: ${DB_PASSWORD} 
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+    volumes:
+      - ./data/database:/var/lib/mysql
+    networks:
+      - lorekeeper-services-network
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - ${ADMINER_PORT}:8080
+    networks:
+      - lorekeeper-services-network
+networks:
+  lorekeeper-services-network:
+    driver: bridge
