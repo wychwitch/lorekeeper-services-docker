@@ -21,7 +21,8 @@ RUN apt-get update && apt-get install -y \
 
 # Add the user UID:1000, GID:1000, home at /lorekeeper
 RUN groupadd -r lorekeeper -g 1000 && useradd -u 1000 -r -g lorekeeper -m -d /lorekeeper -s /sbin/nologin -c "Lorekeeper user" lorekeeper && \
-    chmod 755 /var/www/html
+    chmod 755 /var/www/html && \
+	chown -R lorekeeper:lorekeeper /var/www/html
 
 RUN php -r "readfile('http://getcomposer.org/installer');" | php -- --install-dir=/usr/bin/ --filename=composer
 
