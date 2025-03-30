@@ -15,11 +15,13 @@ First, clone the repo somewhere:
 git clone https://github.com/wychwitch/lorekeeper-services-docker.git 
 ```
 
-Navigate to where you cloned it and copy & edit the `.env.example` file variables as needed, taking care that the database info matches the info in your lorekeeper's .env file!
+Navigate to where you cloned it and copy & edit the `.env.example` file variables as needed, taking care that the database info matches the info in your **Lorekeeper**'s .env file!
 
 ```bash
 cp .env.example .env
 ```
+
+In your **Lorekeeper**'s .env file, open that up and change the `DATABASE_HOST`'s value to `backend`!
 
 Launch and build the services using docker compose
 
@@ -37,7 +39,7 @@ Your database's data will be in the `./data/database` folder!
 
 ## Adminer
 
-Included alongside the database and web server is a small program called [Adminer](https://www.adminer.org/), which is very similar to phpmyadmin. If you navigate to the site (default `localhost:8181`) You sign in using the `DB_USERNAME`, `DB_PASSWORD`, and `DB_DATABASE` variables from before! The host should automatically have `db` in its field but that's totally fine, It'll work!
+Included alongside the database and web server is a small program called [Adminer](https://www.adminer.org/), which is very similar to phpmyadmin. If you navigate to the site (default `localhost:8181`) You sign in using the `DB_USERNAME`, `DB_PASSWORD`, and `DB_DATABASE` variables from before! The host should automatically have `backend` in its field but that's totally fine, It'll work!
 
 If you do not want Adminer because you already have phpmyadmin or another database management solution, simply delete the relevant lines from the docker-compose.yml!
 
