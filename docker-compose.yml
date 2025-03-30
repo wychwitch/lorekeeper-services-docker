@@ -14,7 +14,7 @@ services:
     networks:
       - lorekeeper-services-network
 
-  db:
+  backend:
     image: mariadb
     restart: always
     ports:
